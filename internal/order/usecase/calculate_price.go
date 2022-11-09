@@ -3,6 +3,7 @@ package usecase
 import (
 	"github.com/EduardoPPCaldas/fullcycle/internal/order/entity"
 	"github.com/EduardoPPCaldas/fullcycle/internal/order/infra/database"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type OrderInputDTO struct {
@@ -19,7 +20,7 @@ type OrderOutputDTO struct {
 }
 
 type CalculateFinalPriceUseCase struct {
-	OrderRepository entity.OrderRepositoryInterface // MEGA ACOPLAMENTO
+	OrderRepository entity.OrderRepositoryInterface
 }
 
 func NewCalculateFinalPriceUseCase(orderRepository database.OrderRepository) *CalculateFinalPriceUseCase {
